@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script src="app.js"></script>
+    <script src="libs.js"></script>
+    <script src="loadSchedule.js"></script>
+    <script src="processData.js"></script>
+    <script>
+        var widget = Schedule.widget({
+        //domElement: document.getElementById('asdd'),
+        apiUrl: 'https://er.em70.ru/timetable/#lpu=0001',
+        week: 0
+        });
+        widget.run();
+    </script>
+</body>
+</html>
+
+<!--https://er.em70.ru/timetable/#lpu=0001-->
