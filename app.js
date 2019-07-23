@@ -6,13 +6,13 @@ var Schedule = Schedule || {};
         successCallback = function (rawData) {
             global.dataProcessor.processRawData(rawData);
         },
-        errorCallback = function () {
-
+        errorCallback = function (e) {
+            console.log(e);
         }
     ;
 
     function widget(params) {
-        global.loadSchedule(params.url, successCallback, errorCallback);
+        global.loadSchedule(params.apiUrl, successCallback, errorCallback);
     }
 
     global.widget = widget;

@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+<div class="timetable"></div>
     <script src="app.js"></script>
     <script src="libs.js"></script>
     <script src="loadSchedule.js"></script>
@@ -12,10 +13,11 @@
     <script>
         var widget = Schedule.widget({
         //domElement: document.getElementById('asdd'),
-        apiUrl: 'https://er.em70.ru/timetable/#lpu=0001',
+        apiUrl: 'http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=f61f501d2d78364a3082902c1e85bf5a',
         week: 0
         });
-        widget.run();
+        //widget.run();
+        console.log(widget);
     </script>
 </body>
 </html>
