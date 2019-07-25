@@ -12,7 +12,10 @@ var Schedule = Schedule || {};
     ;
 
     function widget(params) {
-        global.loadSchedule(params.apiUrl, successCallback, errorCallback);
+        this.run = function () {
+            global.loadSchedule(params.apiUrl, params.lpu, successCallback, errorCallback);
+            console.log(successCallback);
+        }
     }
 
     global.widget = widget;

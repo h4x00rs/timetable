@@ -2,22 +2,21 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>TimeTable</title>
 </head>
 <body>
-<div class="timetable"></div>
     <script src="app.js"></script>
     <script src="libs.js"></script>
     <script src="loadSchedule.js"></script>
     <script src="processData.js"></script>
     <script>
-        var widget = Schedule.widget({
+        var Widget = new Schedule.widget({
         //domElement: document.getElementById('asdd'),
-        apiUrl: 'http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=f61f501d2d78364a3082902c1e85bf5a',
+        apiUrl: 'https://er.em70.ru/timetable/',
+        lpu: '0035',
         week: 0
         });
-        //widget.run();
-        console.log(widget);
+        Widget.run();
     </script>
 </body>
 </html>

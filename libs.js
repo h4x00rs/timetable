@@ -23,13 +23,7 @@ var Schedule = Schedule || {};
             return method;
         },
 
-        error = function (e) {
-            console.log(e);
-        },
 
-        success = function (data) {
-            console.log(data);
-        },
 
         createXmlHttpRequest = function (url, params) {
             var xhr = new XMLHttpRequest();
@@ -42,20 +36,20 @@ var Schedule = Schedule || {};
                     return;
                 }
                 params.success(this.responseText);
-            }
+            };
             return xhr;
         },
 
         ajax = function (url, settings) {
             settings = isObject(settings) ? settings : {};
-            settings.method = typeof (settings.method) !== 'undefined' ? normalizeMethod(settings.method) : 'get';
+            settings.method = typeof (settings.method) !== 'undefined' ? normalizeMethod(settings.method) : 'GET';
             if (!isFunction(settings.error)) {
-                settings.error = error;
+                settings.error = global.app.successCallback;
             }
             if (!isFunction(settings.success)) {
-                settings.success = success;
+                settings.success = global.app.errorCallback
             }
-            settings.async = settings.async ? !!settings.async : false;
+            settings.async = settings.async ? !!settings.async : true;
             var xhr = createXmlHttpRequest(url, settings);
             return xhr;
         }
@@ -64,6 +58,6 @@ var Schedule = Schedule || {};
     global.libs = {
         ajax: ajax
     };
-}(window.Schedule));
+}(window.Schedule, window.Schedule.app));
 
 //Schedule.libs.ajax('http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=f61f501d2d78364a3082902c1e85bf5a', {method: 'get'})

@@ -5,9 +5,8 @@ var Schedule = Schedule || {};
 
     var
         processRawData = function (rawData) {
-            //process
-            rawData = JSON.stringify();
-            return [];
+            var dataRaw = JSON.parse(rawData);
+            return dataRaw;
         };
 
     global.dataProcessor = {
