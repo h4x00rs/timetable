@@ -6,6 +6,7 @@ var Schedule = Schedule || {};
     var
         processRawData = function (rawData) {
             var dataRaw = JSON.parse(rawData);
+            console.log(dataRaw);
             return dataRaw;
         };
 

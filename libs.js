@@ -44,10 +44,10 @@ var Schedule = Schedule || {};
             settings = isObject(settings) ? settings : {};
             settings.method = typeof (settings.method) !== 'undefined' ? normalizeMethod(settings.method) : 'GET';
             if (!isFunction(settings.error)) {
-                settings.error = global.app.successCallback;
+                settings.error = Schedule.app.successCallback;
             }
             if (!isFunction(settings.success)) {
-                settings.success = global.app.errorCallback
+                settings.success = Schedule.app.errorCallback;
             }
             settings.async = settings.async ? !!settings.async : true;
             var xhr = createXmlHttpRequest(url, settings);
