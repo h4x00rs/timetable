@@ -1,16 +1,24 @@
 //loadSchedule.js запрашивает данные
 var Schedule = Schedule || {};
-!(function(global){
+!(function (global) {
     "use strict";
     var
+        successCallback = function (rawData) {
+            global.dataProcessor.processRawData(rawData);
+        },
+        errorCallback = function (e) {
+            console.log(e);
+        }
+    ;
 
-        loadSchedule = function (apiUrl, lpu, successCallback, errorCallback) {
+    var
+        loadSchedule = function (apiUrl, lpu) {
             var
 
-                URL = apiUrl + '#lpu=' + lpu;
+                URL = apiUrl + '?lpu=' + lpu;
 
 
-            Schedule.libs.ajax (URL, {
+            Schedule.libs.ajax(URL, {
                 method: 'GET',
                 success: successCallback,
                 async: true,
@@ -19,4 +27,6 @@ var Schedule = Schedule || {};
         };
 
     global.loadSchedule = loadSchedule;
+    global.successCallback = successCallback;
+    global.errorCallback = errorCallback;
 }(window.Schedule, window.Schedule.libs));

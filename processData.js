@@ -1,6 +1,6 @@
 //processData.js обработка данных
 var Schedule = Schedule || {};
-!(function(global){
+!(function (global) {
     "use strict";
 
     var
@@ -10,7 +10,8 @@ var Schedule = Schedule || {};
             return dataRaw;
         };
 
+
     global.dataProcessor = {
-        processRawData : processRawData
+        processRawData: processRawData
     }
-}(window.Schedule, window.Schedule.libs));
+}(window.Schedule));

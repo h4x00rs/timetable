@@ -5,20 +5,19 @@
     <title>TimeTable</title>
 </head>
 <body>
-    <script src="app.js"></script>
-    <script src="libs.js"></script>
-    <script src="loadSchedule.js"></script>
-    <script src="processData.js"></script>
-    <script>
-        var Widget = new Schedule.widget({
+<script src="app.js"></script>
+<script src="libs.js"></script>
+<script src="loadSchedule.js"></script>
+<script src="processData.js"></script>
+<script>
+    var widget = new Schedule.Widget({
         //domElement: document.getElementById('asdd'),
-        apiUrl: 'https://er.em70.ru/timetable/',
+        apiUrl: 'https://er.em70.ru/api/schedule/get',
         lpu: '0035',
         week: 0
-        });
-        Widget.run();
-    </script>
+    });
+    widget.run();
+    /*widget.render();*/
+</script>
 </body>
 </html>
-
-<!--https://er.em70.ru/timetable/#lpu=0001-->

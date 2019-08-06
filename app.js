@@ -1,23 +1,20 @@
 // app.js ядро - приложение - контроллер виджета
 var Schedule = Schedule || {};
-!(function(global, libs){
+!(function (global) {
     "use strict";
     var
-        successCallback = function (rawData) {
-            global.dataProcessor.processRawData(rawData);
-        },
-        errorCallback = function (e) {
-            console.log(e);
+        Widget = function Widget(params) {
+            this.run = function () {
+                global.loadSchedule(params.apiUrl, params.lpu);
+                global.dataProcessor.processRawData();
+            };
+            /*this.render = function () {
+                console.log(global.dataProcessor.processRawData())
+            }*/
         }
     ;
 
-    function widget(params) {
-        this.run = function () {
-            global.loadSchedule(params.apiUrl, params.lpu, successCallback, errorCallback);
-            console.log(successCallback);
-        }
-    }
+    global.Widget = Widget;
 
-    global.widget = widget;
 
 }(window.Schedule, window.Schedule.libs));

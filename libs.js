@@ -1,6 +1,6 @@
 //libs.js
 var Schedule = Schedule || {};
-!(function(global){
+!(function (global) {
     "use strict";
     var
         isObject = function (entity) {
@@ -24,7 +24,6 @@ var Schedule = Schedule || {};
         },
 
 
-
         createXmlHttpRequest = function (url, params) {
             var xhr = new XMLHttpRequest();
             xhr.open(params.method, url, params.async);
@@ -44,10 +43,10 @@ var Schedule = Schedule || {};
             settings = isObject(settings) ? settings : {};
             settings.method = typeof (settings.method) !== 'undefined' ? normalizeMethod(settings.method) : 'GET';
             if (!isFunction(settings.error)) {
-                settings.error = Schedule.app.successCallback;
+                settings.error = Schedule.successCallback;
             }
             if (!isFunction(settings.success)) {
-                settings.success = Schedule.app.errorCallback;
+                settings.success = Schedule.errorCallback;
             }
             settings.async = settings.async ? !!settings.async : true;
             var xhr = createXmlHttpRequest(url, settings);
@@ -58,6 +57,4 @@ var Schedule = Schedule || {};
     global.libs = {
         ajax: ajax
     };
-}(window.Schedule, window.Schedule.app));
-
-//Schedule.libs.ajax('http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=f61f501d2d78364a3082902c1e85bf5a', {method: 'get'})
+}(window.Schedule));
