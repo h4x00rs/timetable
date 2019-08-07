@@ -5,12 +5,11 @@ var Schedule = Schedule || {};
     var
         Widget = function Widget(params) {
             this.run = function () {
-                global.loadSchedule(params.apiUrl, params.lpu);
-                global.dataProcessor.processRawData();
+                global.loadSchedule(params.apiUrl, params.lpu, 
+                    function onScheduleLoaded(rawData) {
+                        console.log(rawData)
+                    });
             };
-            /*this.render = function () {
-                console.log(global.dataProcessor.processRawData())
-            }*/
         }
     ;
 
